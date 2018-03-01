@@ -1,6 +1,7 @@
 ﻿namespace Modelos
 {
-    class Fornecedor
+    class Fornecedor : Pessoa
     {
+
     }
 }
