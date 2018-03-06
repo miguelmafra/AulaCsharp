@@ -53,7 +53,8 @@ namespace ConsoleView
                 switch (opcaoDigitada)
                 {
                     case OpcoesMenuPrincipal.CadastrarCliente:
-                        CadastrarCliente();
+                        Cliente cli = CadastrarCliente();
+                        ExibirDadosDoCliente(cli);
                         break;
                     case OpcoesMenuPrincipal.PesquisarCliente:
                         break;
@@ -122,6 +123,19 @@ namespace ConsoleView
         {
             Console.Clear();
         }
-   
+        private static void ExibirDadosDoCliente(Cliente cliente)
+        {
+            
+            Console.Write("Nome do cliente: " + cliente.Nome);
+            Console.WriteLine();
+            Console.Write("CPF do cliente: " + cliente.Cpf);
+            Console.WriteLine();
+            Console.Write("Complemento do cliente: " + cliente._Endereco.Complemento);
+            Console.WriteLine();
+            Console.Write("Rua do cliente: " + cliente._Endereco.Rua);
+            Console.WriteLine();
+            Console.Write("Numero da rua do cliente: " + cliente._Endereco.Numero);
+            Console.WriteLine();
+        }
     }
 }
