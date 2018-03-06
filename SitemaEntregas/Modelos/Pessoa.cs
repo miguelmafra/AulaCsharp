@@ -8,6 +8,7 @@
 
         public string Cpf { get; set; }
 
+        public Endereco _Endereco { get; set;}
 
     }
 }

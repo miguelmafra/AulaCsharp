@@ -48,11 +48,12 @@ namespace ConsoleView
             //int opcaoDigitada = 5;
             do
             {
-               opcaoDigitada = Menu();
+                opcaoDigitada = Menu();
 
                 switch (opcaoDigitada)
                 {
                     case OpcoesMenuPrincipal.CadastrarCliente:
+                        CadastrarCliente();
                         break;
                     case OpcoesMenuPrincipal.PesquisarCliente:
                         break;
@@ -61,22 +62,25 @@ namespace ConsoleView
                     case OpcoesMenuPrincipal.ExluirCliente:
                         break;
                     case OpcoesMenuPrincipal.LimparTela:
+                        LimparTela();
                         break;
                     case OpcoesMenuPrincipal.Sair:
                         break;
                     default:
                         break;
                 }
-          
+
             } while (opcaoDigitada != OpcoesMenuPrincipal.Sair);
 
-          
+
         }
 
         //Metodo Cliente
         private static Cliente CadastrarCliente()
         {
             Cliente cli = new Cliente();
+            cli._Endereco = new Endereco();
+
             Console.Write("Digite o nome: ");
             cli.Nome = Console.ReadLine();
 
@@ -85,15 +89,39 @@ namespace ConsoleView
             Console.Write("Digite o CPF:  ");
             cli.Cpf = Console.ReadLine();
 
+            Console.Write("Digite o seu endereço: ");
+            cli._Endereco.Rua = Console.ReadLine();
+
+            Console.Write("Digite o complemento: ");
+            cli._Endereco.Complemento = Console.ReadLine();
+
+            Console.Write("Digite o número da sua casa: ");
+            cli._Endereco.Numero = int.Parse(Console.ReadLine());
+
             //...Endereço
 
             return cli;
 
         }
-    }
+
         private static Cliente PesquisarCliente()
-    {
-        //TODO : Fazer depois
-        return new Cliente();
+        {
+            //TODO : Fazer depois
+            return new Cliente();
+        }
+
+        private static Cliente EditarCliente()
+        {
+            return new Cliente();
+        }
+        private static Cliente ExcluirCliente()
+        {
+            return new Cliente();
+        }
+        private static void  LimparTela()
+        {
+            Console.Clear();
+        }
+   
     }
 }
