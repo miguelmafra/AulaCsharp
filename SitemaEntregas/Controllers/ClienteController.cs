@@ -2,6 +2,9 @@
 {
     public class ClienteController
     {
+        public void SalvarCliente(Cliente cliente)
+        {
 
+        }
     }
 }
