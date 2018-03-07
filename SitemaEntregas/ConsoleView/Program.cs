@@ -57,6 +57,7 @@ namespace ConsoleView
                         ExibirDadosDoCliente(cli);
                         break;
                     case OpcoesMenuPrincipal.PesquisarCliente:
+                        PesquisarCliente();
                         break;
                     case OpcoesMenuPrincipal.EditarCliente:
                         break;
@@ -99,7 +100,6 @@ namespace ConsoleView
             Console.Write("Digite o número da sua casa: ");
             cli._Endereco.Numero = int.Parse(Console.ReadLine());
 
-            //...Endereço
 
             return cli;
 
@@ -127,15 +127,13 @@ namespace ConsoleView
         {
             
             Console.Write("Nome do cliente: " + cliente.Nome);
-            Console.WriteLine();
-            Console.Write("CPF do cliente: " + cliente.Cpf);
-            Console.WriteLine();
-            Console.Write("Complemento do cliente: " + cliente._Endereco.Complemento);
-            Console.WriteLine();
-            Console.Write("Rua do cliente: " + cliente._Endereco.Rua);
-            Console.WriteLine();
-            Console.Write("Numero da rua do cliente: " + cliente._Endereco.Numero);
-            Console.WriteLine();
+            Console.WriteLine("ID: " + cliente.PessoaId);
+            Console.WriteLine("Nome do cliente: " + cliente.Nome);
+            Console.WriteLine("CPF do cliente: " + cliente.Cpf);
+            Console.WriteLine("Complemento do cliente: " + cliente._Endereco.Complemento);
+            Console.WriteLine("Rua do cliente: " + cliente._Endereco.Rua);
+            Console.WriteLine("Numero da rua do cliente: " + cliente._Endereco.Numero);
+            Console.WriteLine("Compl. :" + cliente._Endereco.Complemento);
         }
     }
 }
