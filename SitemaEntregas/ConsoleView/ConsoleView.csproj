@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Controllers\Controllers.csproj">
+      <Project>{f655be68-0806-4e87-9d12-5e2af4ff7ae7}</Project>
+      <Name>Controllers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Modelos\Modelos.csproj">
       <Project>{1962edf5-b11a-41e8-983e-a9d1c728378f}</Project>
       <Name>Modelos</Name>
