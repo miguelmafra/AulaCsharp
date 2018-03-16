@@ -1,5 +1,7 @@
-﻿using Modelos;
+﻿using Controllers;
+using Modelos;
 using System;
+using System.Collections.Generic;
 
 namespace ConsoleView
 {
@@ -107,8 +109,16 @@ namespace ConsoleView
 
         private static Cliente PesquisarCliente()
         {
-            //TODO : Fazer depois
-            return new Cliente();
+            Console.WriteLine("Digite o nome do cliente: ");
+            string nomeCliente = Console.ReadLine();
+
+            ClienteController cc = new ClienteController();
+            Cliente cli = cc.PesquisarPorNome(nomeCliente);
+
+            if (cli != null)
+                ExibirDadosDoCliente(cli);
+            else
+                Console.WriteLine(" * Cliente não encontrado");
         }
 
         private static Cliente EditarCliente()
@@ -125,15 +135,45 @@ namespace ConsoleView
         }
         private static void ExibirDadosDoCliente(Cliente cliente)
         {
-            
-            Console.Write("Nome do cliente: " + cliente.Nome);
-            Console.WriteLine("ID: " + cliente.PessoaId);
-            Console.WriteLine("Nome do cliente: " + cliente.Nome);
-            Console.WriteLine("CPF do cliente: " + cliente.Cpf);
-            Console.WriteLine("Complemento do cliente: " + cliente._Endereco.Complemento);
-            Console.WriteLine("Rua do cliente: " + cliente._Endereco.Rua);
-            Console.WriteLine("Numero da rua do cliente: " + cliente._Endereco.Numero);
-            Console.WriteLine("Compl. :" + cliente._Endereco.Complemento);
+            Console.WriteLine();
+            Console.WriteLine("--- DADOS CLIENTE --- ");
+            Console.WriteLine("ID:" + cliente.PessoaID);
+            Console.WriteLine("Nome: " + cliente.Nome);
+            Console.WriteLine("Cpf: " + cliente.Cpf);
+
+            Console.WriteLine("- Endereco -");
+            Console.WriteLine("Rua: " + cliente._Endereco.Rua);
+            Console.WriteLine("Num: " + cliente._Endereco.Numero);
+            Console.WriteLine("Compl.: " + cliente._Endereco.Complemento);
+            Console.WriteLine("-------------- ");
+            Console.WriteLine();
+
+        }
+
+        private static void ListarTodosClientes()
+        {
+            Console.WriteLine();
+            Console.WriteLine(" --- Clientes cadastrados --- ");
+
+            ClienteController cc = new ClienteController();
+            List<Cliente> lista = cc.ListarClientes();
+
+            if (lista.Count == 0)
+            {
+                Console.WriteLine(" * Ainda nao existem clientes cadastrados");
+            }
+            else
+            {
+                foreach (Cliente cli in lista)
+                {
+                    ExibirDadosDoCliente(cli);
+                }
+            }
+            Console.WriteLine();
         }
     }
 }
+
+
+
+
