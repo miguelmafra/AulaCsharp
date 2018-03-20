@@ -104,10 +104,7 @@ namespace ConsoleView
             Console.Write("Digite o cpf: ");
             cli.Cpf = Console.ReadLine();
 
-           
-          
-
-            cli._Endereco = end;
+            Endereco end = CadastrarEndereco();
 
             return cli;
         }
