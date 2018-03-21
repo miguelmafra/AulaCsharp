@@ -182,5 +182,29 @@ namespace ConsoleView
             }
             Console.WriteLine();
         }
+
+        private static void EditarCliente()
+        {
+            Console.WriteLine("-- Editar Cliente --");
+            ListarTodosClientes();
+
+            Console.WriteLine("Digite o ID do cliente para ser editado");
+
+            int idCliente = int.Parse(Console.ReadLine());
+            ClienteController cc = new ClienteController();
+
+            Cliente cli = cc.PesquisarPorID(idCliente);
+
+            if(Cliente != null)
+            {
+                Console.WriteLine("Digite o nome do cliente");
+                cli.Nome = Console.ReadLine();
+            }
+            else
+            {
+                Console.WriteLine("Cliente não encontrado");
+            }
+
+        }
     }
 }
