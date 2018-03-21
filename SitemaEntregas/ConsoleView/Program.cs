@@ -195,15 +195,39 @@ namespace ConsoleView
 
             Cliente cli = cc.PesquisarPorID(idCliente);
 
-            if(Cliente != null)
+            if (cli != null)
             {
-                Console.WriteLine("Digite o nome do cliente");
+                Console.WriteLine("Digite o nome do cliente: ");
                 cli.Nome = Console.ReadLine();
+
+                Console.WriteLine("Digite o cpf desejado: ");
+                cli.Cpf = Console.ReadLine();
+
+                Endereco e = AlterarEndereco(cli.EnderecoId);
+
+
             }
             else
             {
                 Console.WriteLine("Cliente não encontrado");
             }
+
+        }
+        private static Endereco AlterarEndereco(int id)
+        {
+            EnderecoController ec = new EnderecoController();
+            Endereco e = ec.PesquisarPorID(id);
+
+            Console.WriteLine("Informe o nome da rua: ");
+            e.Rua = Console.ReadLine();
+
+            Console.WriteLine("Informe o número: ");
+            e.Numero = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Informe o complemento: ");
+            e.Complemento = Console.ReadLine();
+
+            return e;
 
         }
     }

@@ -18,10 +18,10 @@ namespace Controllers
             MeusEnderecos.Add(endereco);
         }
 
-        public Endereco PesquisarPorRua(string nome)
+        public Endereco PesquisarPorID(int idEndereco)
         {
             var c = from x in MeusEnderecos
-                    where x.Rua.ToLower().Contains(nome.Trim().ToLower())
+                    where x.EnderecoID.Equals(idEndereco)
                     select x;
 
             if (c != null)

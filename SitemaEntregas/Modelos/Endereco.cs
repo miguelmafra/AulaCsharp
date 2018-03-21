@@ -10,7 +10,5 @@
 
         public string Complemento { get; set; }
 
-        public Endereco _Endereco { get; set; }
-
     }
 }
