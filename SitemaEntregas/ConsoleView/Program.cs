@@ -152,13 +152,23 @@ namespace ConsoleView
             Console.WriteLine("Nome: " + cliente.Nome);
             Console.WriteLine("Cpf: " + cliente.Cpf);
 
+            ExibirDadosEndereco(cliente.EnderecoId);
+
+        }
+
+        private static void ExibirDadosEndereco (int id)
+        {
+            EnderecoController ec = new EnderecoController();
+            Endereco e = ec.PesquisarPorID(id);
+
             Console.WriteLine("- Endereco -");
-            Console.WriteLine("Rua: " + cliente._Endereco.Rua);
-            Console.WriteLine("Num: " + cliente._Endereco.Numero);
-            Console.WriteLine("Compl.: " + cliente._Endereco.Complemento);
+            Console.WriteLine("Rua: " + e.Rua);
+            Console.WriteLine("Num: " + e.Numero);
+            Console.WriteLine("Compl.: " + e.Complemento);
             Console.WriteLine("-------------- ");
             Console.WriteLine();
 
+            
         }
 
         private static void ListarTodosClientes()
