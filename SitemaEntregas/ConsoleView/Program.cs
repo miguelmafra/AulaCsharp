@@ -111,6 +111,7 @@ namespace ConsoleView
 
         private static Endereco CadastrarEndereco()
         {
+            EnderecoController ec = new EnderecoController();
             Endereco end = new Endereco();
 
             Console.Write("Digite o nome da rua: ");

@@ -55,5 +55,9 @@ namespace Controllers
             return MeusClientes;
         }
     }
+    public void EditarCliente (int idClienteEditar, Cliente clienteEditado)
+    {
+        Cliente clienteEditar = PesquisarPorID
+    }
 }
 
